@@ -361,7 +361,7 @@ class SetFitTrainer:
                         train_examples = sentence_pairs_generation(
                             np.array(x_train), np.array(y_train), train_examples
                         )
-                print(len(train_examples))
+                logger.info("len of train examples: " + str(len(train_examples)))
                 train_dataloader = DataLoader(train_examples, shuffle=True, batch_size=batch_size)
                 train_loss = self.loss_class(self.model.model_body)
                 train_steps = len(train_dataloader) * num_epochs
